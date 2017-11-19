@@ -1,0 +1,84 @@
+/*
+    first universal reset for the environment :
+    * selector : select all elements on page.
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    everyting need to be inheriented would be defined here.
+ */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    /*
+        padding will not be inheriented so only body will have this css setting
+     */
+    padding: 30px;
+}
+
+.header {
+    /* vh would make the header always occupy as 95% of the container , regardless how we change the size of it */
+    height: 95vh;
+    position: relative;
+    /*
+        when using gradient : always background-image
+        so below shows there are two images there : one is gradient color / the other is the hero image below the gradient.
+    */
+    background-image:
+    /* rgba 的a 就是 opacity */
+    linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8)),
+    url(../img/hero.jpg);
+    /* cover means */
+    background-size: cover;
+    background-position: top;
+    /*
+        clip-path is very modern css features but edege/IE/Safari not support
+        Can use SVG --> clipPath --> polygon 替代
+        Note: the points number can be random like if try to make one triangle , only need three points
+     */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.logo-box{
+    /* absolute position is relative to parent element which has positon as relative */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    /* set the height and width wold be automatically figured out by browser */
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main{
+    display: block; /* make inline element behaviors like block element */
+    font-size: 60px;
+    font-weight: 400; /* control the font thiness */
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
