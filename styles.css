@@ -62,15 +62,18 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    /* using positon: absoute will make the left-top corner in the middle of the page but not the element so we have to use "transform translate" to make the adjacent not compare to the parent element but to in related to the element its self */
+    transform: translate( -40%, -50% );
 }
 
 .heading-primary{
     color: #fff;
-    text-transform: uppercase;
+    text-transform: uppercase; /* */
 }
 
 .heading-primary-main{
-    display: block; /* make inline element behaviors like block element */
+    /* make inline element behaviors like block element: will occupy the 100% width*/
+    display: block;
     font-size: 60px;
     font-weight: 400; /* control the font thiness */
     letter-spacing: 35px;
