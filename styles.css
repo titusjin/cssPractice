@@ -32,7 +32,7 @@ body {
         so below shows there are two images there : one is gradient color / the other is the hero image below the gradient.
     */
     background-image:
-    /* rgba 的a 就是 opacity */
+    /* rgba 的a 就是 opacity / 這邊用上兩張圖 */
     linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8)),
     url(../img/hero.jpg);
     /* cover means */
@@ -41,7 +41,7 @@ body {
     /*
         clip-path is very modern css features but edege/IE/Safari not support
         Can use SVG --> clipPath --> polygon 替代
-        Note: the points number can be random like if try to make one triangle , only need three points
+        Note: the points number can be random like if try to make one triangle , only need three points(點的排列使用：左上角開始，順時鐘)
      */
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
@@ -58,25 +58,49 @@ body {
     height: 35px;
 }
 
+.logo:hover {
+    animation: moveInRight 1s ease-out;
+}
+
 .text-box {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* using positon: absoute will make the left-top corner in the middle of the page but not the element so we have to use "transform translate" to make the adjacent not compare to the parent element but to in related to the element its self */
+    /* using positon: absolute will make the left-top corner in the middle of the page but not the element so we have to use "transform translate" to make the adjacent not compare to the parent element but to in related to the element its self */
     transform: translate( -40%, -50% );
+    text-align: center;
 }
 
 .heading-primary{
     color: #fff;
-    text-transform: uppercase; /* */
+    text-transform: uppercase;
+
+    /**
+     * when using the animation the whle element might show some shicky to top
+     * as the teacher said: 'no one really know why but we know how to fix it'
+     */
+    backface-visibility: hidden;
+
+    margin-bottom: 60px;
 }
 
 .heading-primary-main{
     /* make inline element behaviors like block element: will occupy the 100% width*/
     display: block;
     font-size: 60px;
-    font-weight: 400; /* control the font thiness */
+    font-weight: 400; /* control the font thickness */
     letter-spacing: 35px;
+    /**
+     * to apply the animation by using
+     * 1. Animation name we defined in css
+     * 2. Animation duration  : the time animation should take
+     */
+    animation-name: mofeInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    /* before the animation start, it will wait for 1 second
+    animation-delay: 1s;
+    */
 }
 
 .heading-primary-sub{
@@ -84,4 +108,70 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out;
+}
+
+/*
+    Animations ***
+    in css there are basically two different types of animations
+    1. transition
+    2. keyframe
+ */
+@@keyframes moveInLeft {
+    /* initial state */
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    /* mddle state */
+    36% {
+        /* so the animation will move a little bit to the right then back */
+        transform: translateX(10px);
+    }
+
+    /* end state */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@@keyframes moveInRight {
+    /* initial state */
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    /* mddle state */
+    36% {
+        /* so the animation will move a little bit to the right then back */
+        transform: translateX(-10px);
+    }
+
+    /* end state */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+/**
+ * to make the btn centered
+ * cause it is just one inline-element , for that we can just using text-align * in the parent element which for this condition is: .text-box
+ */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* first: top/bottom   second: right/left */
+    padding: 15px 40px;
+    display: inline-block;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
