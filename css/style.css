@@ -32,15 +32,8 @@ body {
         so below shows there are two images there : one is gradient color / the other is the hero image below the gradient.
     */
     background-image:
-<<<<<<< HEAD:css/style.css
-    /*
-    rgba 的a 就是 opacity
-    */
-    linear-gradient(to right bottom, rgba(126, 253, 111, 0.8), rgba(40, 180, 131, 0.8)),
-=======
     /* rgba 的a 就是 opacity / 這邊用上兩張圖 */
     linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8)),
->>>>>>> 9876e5ade879c71036d100966612e05611dbd905:styles.css
     url(../img/hero.jpg);
     /* cover means */
     background-size: cover;
@@ -61,7 +54,7 @@ body {
 }
 
 .logo{
-    /* set the height and width wold be automatically figured out by browser */
+    /* set the height and width would be automatically figured out by browser */
     height: 35px;
 }
 
@@ -202,7 +195,7 @@ body {
 /*
  * pseudo elements just represents one element appear after/before ...etc
  * most important attribute is : content
- * Note: every element that have 
+ * Note: every element that have
  */
 .btn::after {
     content: "";
