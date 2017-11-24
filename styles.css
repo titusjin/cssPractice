@@ -169,9 +169,49 @@ body {
     /* first: top/bottom   second: right/left */
     padding: 15px 40px;
     display: inline-block;
+    border-radius: 100px;
+    /* transition have to be set in the initial state */
+    transition: all .2s;
+}
+
+/**
+ * we use shadow change to make the button more suitable to represents native
+ * user interaction.
+ */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+/*
+ * pseudo elements just represents one element appear after/before ...etc
+ * most important attribute is : content
+ * Note: every element that have 
+ */
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    weight: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.btn-white::after {
+    background-color: #fff;
+}
+/* after element while btn in hover state */
+.btn:hover::after {
+    transform: scale(2);
 }
