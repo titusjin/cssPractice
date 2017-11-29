@@ -1,11 +1,14 @@
 /*
     first universal reset for the environment :
     * selector : select all elements on page.
+    we can also put box-sizing initial value here also , but for better inherit propose, better put that into body.
  */
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 /*
@@ -21,6 +24,9 @@ body {
         padding will not be inheriented so only body will have this css setting
      */
     padding: 30px;
+
+    /* every properties should put where can be inheriented */
+    box-sizing: border-box;
 }
 
 .header {
