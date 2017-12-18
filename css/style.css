@@ -39,9 +39,9 @@ body {
     */
     background-image:
     /* rgba 的a 就是 opacity / 這邊用上兩張圖 */
-    linear-gradient(to right bottom, rgba(#7ed56f, 0.8), rgba(#28b485, 0.8)),
+    linear-gradient(to right bottom, rgba(7, 3, 41, 0.8), rgba(92, 85, 236, 0.8)),
     url(../img/hero.jpg);
-    /* cover means */
+    /* cover means : Resize the background image to cover the entire container(by w3c school) */
     background-size: cover;
     background-position: top;
     /*
